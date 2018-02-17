@@ -39,6 +39,21 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
+		
+<!-- 		https://stackoverflow.com/questions/41738621/error-starting-applicationcontext-to-display-the-auto-configuration-report-re-r -->
+		<dependency>
+    <groupId>org.hibernate</groupId>
+    <artifactId>hibernate-core</artifactId>
+<!--     <version>5.0.7.Final</version> -->
+</dependency>
+
+
+
+<dependency>
+                       <groupId>mysql</groupId>
+                       <artifactId>mysql-connector-java</artifactId>
+                </dependency>
 	</dependencies>
 
 	<build>
