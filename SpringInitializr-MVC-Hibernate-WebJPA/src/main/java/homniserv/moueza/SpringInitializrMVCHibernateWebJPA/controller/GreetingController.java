@@ -1,4 +1,4 @@
-package homniserv.moueza.SpringInitializrMVCHibernateWebJPA;
+package homniserv.moueza.SpringInitializrMVCHibernateWebJPA.controller;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,23 +11,24 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 /** https://spring.io/guides/gs/serving-web-content/ */
 @Controller
 public class GreetingController {
 
-	@RequestMapping("/greeting")
+	// @RequestMapping("/greetingg")
+	@RequestMapping("/SpringInitializr-MVC-Hibernate-WebJPA/greetingg")
 	public String greeting(@RequestParam(value = "name", required = false, defaultValue = "World") String name,
 			Model model) {
 		model.addAttribute("name", name);
-		return "greeting";
+		return "greeting3";
 	}
 
-	@RequestMapping("/greeting2")
-	public String greeting2(@RequestParam(value = "name", required = false, defaultValue = "World") String name,
-			Model model) {
-		model.addAttribute("name", name);
+	@RequestMapping("/SpringInitializr-MVC-Hibernate-WebJPA/greetingg2")
+	public String greeting2(Model model) {
+		model.addAttribute("name", "MOUEZA");
 		return "greeting2";
 	}
 
@@ -40,7 +41,7 @@ public class GreetingController {
 	 */
 
 	/** type 1 */
-	//@GetMapping("/showViewPage")
+	// @GetMapping("/showViewPage")
 	@GetMapping("/SpringInitializr-MVC-Hibernate-WebJPA/showViewPage")
 	public String passParametersWithModel(Model model) {
 		Map<String, String> map = new HashMap<String, String>();
@@ -63,8 +64,14 @@ public class GreetingController {
 	public ModelAndView passParametersWithModelAndView() {
 		ModelAndView modelAndView = new ModelAndView("viewPage");
 		modelAndView.addObject("message", "Baeldung");
-		   org.slf4j.Logger logger = LoggerFactory.getLogger(this.getClass());
-		    logger.debug("logger type 3");
+		org.slf4j.Logger logger = LoggerFactory.getLogger(this.getClass());
+		logger.debug("logger type 3");
 		return modelAndView;
+	}
+
+	@GetMapping("/SpringInitializr-MVC-Hibernate-WebJPA/txt")
+	@ResponseBody
+	public String methodeRenvoieTxt() {
+		return "<html><head></head><body>OK</body></html>";
 	}
 }
